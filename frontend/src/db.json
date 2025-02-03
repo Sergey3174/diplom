@@ -1,0 +1,435 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Иван Ивановsaassa",
+      "login": "ivancASAS",
+      "email": "ivan@example.comSSS",
+      "password": "qwe123",
+      "created_at": "2024-04-25T10:00:00Z"
+    },
+    {
+      "id": "2",
+      "name": "Мария Ивановна Новикова ",
+      "login": "maria",
+      "email": "maria@example.com",
+      "password": "62bahutu",
+      "created_at": "2024-04-26T11:15:00Z"
+    },
+    {
+      "login": "sergey1",
+      "password": "qwe123",
+      "registered_at": "2062-05-06 09:31",
+      "name": "Литвиненко Сергей",
+      "email": "skauzerlfc@gmail.com",
+      "id": "78lS3RQ"
+    },
+    {
+      "login": "qwe123",
+      "password": "qwe123",
+      "registered_at": "2051-02-01 04:33",
+      "name": "",
+      "email": "",
+      "id": "hsV569K"
+    }
+  ],
+  "categories": [
+    {
+      "userId": "2",
+      "name": "rerererre",
+      "type": "income",
+      "id": "zInr9c0"
+    },
+    {
+      "userId": "1",
+      "name": "egewggw",
+      "type": "income",
+      "id": "9lrTiPo"
+    },
+    {
+      "userId": "78lS3RQ",
+      "name": "Зарплата",
+      "type": "income",
+      "id": "OaP_Whh"
+    },
+    {
+      "userId": "78lS3RQ",
+      "name": "Инвестиции",
+      "type": "income",
+      "id": "6Iy46SE"
+    },
+    {
+      "userId": "78lS3RQ",
+      "name": "Рента",
+      "type": "income",
+      "id": "-OdxCU4"
+    },
+    {
+      "userId": "78lS3RQ",
+      "name": "Продукты",
+      "type": "expense",
+      "id": "F_x06Jm"
+    },
+    {
+      "userId": "78lS3RQ",
+      "name": "Аренда",
+      "type": "expense",
+      "id": "11tdNl0"
+    },
+    {
+      "userId": "78lS3RQ",
+      "name": "Автомобиль",
+      "type": "expense",
+      "id": "VG3IBQA"
+    }
+  ],
+  "transactions": [
+    {
+      "userId": "2",
+      "accountId": "vH6JPBN",
+      "categoryId": "zInr9c0",
+      "amount": 2,
+      "type": "income",
+      "description": "erererer",
+      "transaction_date": "2024-11-05T16:21:03.847Z",
+      "id": "nV3FZsO"
+    },
+    {
+      "userId": "2",
+      "accountId": "vH6JPBN",
+      "categoryId": "zInr9c0",
+      "amount": 150,
+      "type": "income",
+      "description": "jgjh",
+      "transaction_date": "2024-11-07T20:27:33.996Z",
+      "id": "HsdqRY6"
+    },
+    {
+      "userId": "2",
+      "accountId": "vH6JPBN",
+      "categoryId": "zInr9c0",
+      "amount": 1500,
+      "type": "income",
+      "description": "jhgjh",
+      "transaction_date": "2024-11-07T20:27:45.572Z",
+      "id": "3_TNzuB"
+    },
+    {
+      "userId": "2",
+      "accountId": "vH6JPBN",
+      "categoryId": "zInr9c0",
+      "amount": 323,
+      "type": "income",
+      "description": "цуувц",
+      "transaction_date": "2024-11-07T20:29:49.583Z",
+      "id": "91cetDF"
+    },
+    {
+      "userId": "78lS3RQ",
+      "accountId": "d_3JEW3",
+      "categoryId": "OaP_Whh",
+      "amount": 15000,
+      "type": "income",
+      "description": "Зарплата ноябрь",
+      "transaction_date": "2024-11-07T21:13:24.167Z",
+      "id": "8LVB6OD"
+    },
+    {
+      "userId": "78lS3RQ",
+      "accountId": "d_3JEW3",
+      "categoryId": "6Iy46SE",
+      "amount": 5000,
+      "type": "income",
+      "description": "Крипта",
+      "transaction_date": "2024-11-07T21:13:49.244Z",
+      "id": "6RLtnh5"
+    },
+    {
+      "userId": "78lS3RQ",
+      "accountId": "d_3JEW3",
+      "categoryId": "-OdxCU4",
+      "amount": 5000,
+      "type": "income",
+      "description": "сдача гараж в аренду",
+      "transaction_date": "2024-11-07T21:14:25.026Z",
+      "id": "E_d3ALF"
+    },
+    {
+      "userId": "78lS3RQ",
+      "accountId": "d_3JEW3",
+      "categoryId": "VG3IBQA",
+      "amount": 3000,
+      "type": "expense",
+      "description": "Бензин",
+      "transaction_date": "2024-11-07T21:15:30.937Z",
+      "id": "KGaX9Zd"
+    },
+    {
+      "userId": "78lS3RQ",
+      "accountId": "d_3JEW3",
+      "categoryId": "11tdNl0",
+      "amount": 10000,
+      "type": "expense",
+      "description": "За квартиру",
+      "transaction_date": "2024-11-07T21:16:05.830Z",
+      "id": "nrDb1rE"
+    },
+    {
+      "userId": "78lS3RQ",
+      "accountId": "d_3JEW3",
+      "categoryId": "F_x06Jm",
+      "amount": 1500,
+      "type": "expense",
+      "description": "Продукты в ленте",
+      "transaction_date": "2024-11-07T21:16:38.374Z",
+      "id": "u9nbn2b"
+    }
+  ],
+  "type_accounts": [
+    {
+      "id": "1",
+      "name": "Вклад"
+    },
+    {
+      "id": "2",
+      "name": "Дебетовая карта"
+    },
+    {
+      "name": "Кредитная карта",
+      "id": "mKt6_-i"
+    }
+  ],
+  "accounts": [
+    {
+      "userId": "2",
+      "name": "erferferferf",
+      "type_accounts": "1",
+      "created_at": "2024-11-05T15:54:42.525Z",
+      "id": "vH6JPBN"
+    },
+    {
+      "userId": "78lS3RQ",
+      "name": "Сбербанк",
+      "type_accounts": "2",
+      "created_at": "2024-11-07T21:11:13.572Z",
+      "id": "d_3JEW3"
+    },
+    {
+      "userId": "78lS3RQ",
+      "name": "ВТБ",
+      "type_accounts": "2",
+      "created_at": "2024-11-07T21:14:39.362Z",
+      "id": "REK8iuA"
+    }
+  ],
+  "sessions": [
+    {
+      "hash": "0.14411656711276710218783136951969936490058898925781",
+      "user": {
+        "id": "2",
+        "login": "maria",
+        "password": "qwe123"
+      },
+      "id": 1
+    },
+    {
+      "hash": "0.20089178261957529869619065721053630113601684570313",
+      "user": {
+        "id": "1",
+        "login": "ivan",
+        "password": "qwe123"
+      },
+      "id": 2
+    },
+    {
+      "hash": "0.54657189081429313759485921764280647039413452148438",
+      "user": {
+        "id": "avoMAut",
+        "login": "sergey",
+        "password": "qwe123",
+        "registeredAt": "2043-09-04 22:56",
+        "roleId": 2
+      },
+      "id": 3
+    },
+    {
+      "hash": "0.70730624797425578620391206641215831041336059570313",
+      "user": {
+        "id": "1",
+        "login": "ivan",
+        "password": "qwe123"
+      },
+      "id": 4
+    },
+    {
+      "hash": "0.75664255310926531450377297005616128444671630859375",
+      "user": {
+        "id": "1",
+        "login": "ivan",
+        "password": "qwe123"
+      },
+      "id": 6
+    },
+    {
+      "hash": "0.33428577261152647714936847478384152054786682128906",
+      "user": {
+        "id": "avoMAut",
+        "login": "sergey",
+        "password": "qwe123",
+        "registeredAt": "2043-09-04 22:56",
+        "roleId": 2
+      },
+      "id": 7
+    },
+    {
+      "hash": "0.15395980727796731990508760645752772688865661621094",
+      "user": {
+        "id": "1",
+        "login": "ivan",
+        "password": "qwe123"
+      },
+      "id": 8
+    },
+    {
+      "hash": "0.76689340898297775339642612379975616931915283203125",
+      "user": {
+        "id": "1",
+        "login": "ivan",
+        "password": "qwe123",
+        "name": "Иван Иванов",
+        "email": "ivan@example.com"
+      },
+      "id": 9
+    },
+    {
+      "hash": "0.51987739977428359949840341869276016950607299804688",
+      "user": {
+        "id": "avoMAut",
+        "login": "sergey",
+        "password": "qwe123",
+        "registeredAt": "2043-09-04 22:56"
+      },
+      "id": 10
+    },
+    {
+      "hash": "0.62940882692556976429898440983379259705543518066406",
+      "user": {
+        "id": "78lS3RQ",
+        "login": "sergey",
+        "password": "62bahutu",
+        "name": "Литвиненко Сергей sss",
+        "email": "skauzerlfc@gmail.com",
+        "registeredAt": "2062-05-06 09:31"
+      },
+      "id": 11
+    },
+    {
+      "hash": "0.27528622622571319311646220739930868148803710937500",
+      "user": {
+        "id": "78lS3RQ",
+        "login": "sergey",
+        "password": "62bahutu",
+        "name": "Литвиненко Сергей sss333",
+        "email": "skauzerlfc@gmail.com",
+        "registeredAt": "2062-05-06 09:31"
+      },
+      "id": 12
+    },
+    {
+      "hash": "0.07484586989568442483289345545927062630653381347656",
+      "user": {
+        "id": "78lS3RQ",
+        "login": "sergey",
+        "password": "62bahutu",
+        "name": "Литвиненко Сергей",
+        "email": "skauzerlfc@gmail.com",
+        "registeredAt": "2062-05-06 09:31"
+      },
+      "id": 13
+    },
+    {
+      "hash": "0.66125281828758430968662196391960605978965759277344",
+      "user": {
+        "id": "78lS3RQ",
+        "login": "sergey1",
+        "password": "qwe123",
+        "name": "Литвиненко Сергей",
+        "email": "skauzerlfc@gmail.com",
+        "registeredAt": "2062-05-06 09:31"
+      },
+      "id": 14
+    },
+    {
+      "hash": "0.89390179773379796479559900035383179783821105957031",
+      "user": {
+        "id": "78lS3RQ",
+        "login": "sergey1",
+        "password": "qwe123",
+        "name": "Литвиненко Сергей",
+        "email": "skauzerlfc@gmail.com",
+        "registeredAt": "2062-05-06 09:31"
+      },
+      "id": 15
+    },
+    {
+      "hash": "0.17009712820658240417515116860158741474151611328125",
+      "user": {
+        "id": "78lS3RQ",
+        "login": "sergey1",
+        "password": "qwe123",
+        "name": "Литвиненко Сергей",
+        "email": "skauzerlfc@gmail.com",
+        "registeredAt": "2062-05-06 09:31"
+      },
+      "id": 16
+    },
+    {
+      "hash": "0.78712679363737358961827794701093807816505432128906",
+      "user": {
+        "id": "78lS3RQ",
+        "login": "sergey1",
+        "password": "qwe123",
+        "name": "Литвиненко Сергей",
+        "email": "skauzerlfc@gmail.com",
+        "registeredAt": "2062-05-06 09:31"
+      },
+      "id": 17
+    },
+    {
+      "hash": "0.28138058067551985352849897026317194104194641113281",
+      "user": {
+        "id": "78lS3RQ",
+        "login": "sergey1",
+        "password": "qwe123",
+        "name": "Литвиненко Сергей",
+        "email": "skauzerlfc@gmail.com",
+        "registeredAt": "2062-05-06 09:31"
+      },
+      "id": 18
+    },
+    {
+      "hash": "0.49525437377752701273436741757905110716819763183594",
+      "user": {
+        "id": "78lS3RQ",
+        "login": "sergey1",
+        "password": "qwe123",
+        "name": "Литвиненко Сергей",
+        "email": "skauzerlfc@gmail.com",
+        "registeredAt": "2062-05-06 09:31"
+      },
+      "id": 19
+    },
+    {
+      "hash": "0.68011525173697440216358245379524305462837219238281",
+      "user": {
+        "id": "78lS3RQ",
+        "login": "sergey1",
+        "password": "qwe123",
+        "name": "Литвиненко Сергей",
+        "email": "skauzerlfc@gmail.com",
+        "registeredAt": "2062-05-06 09:31"
+      },
+      "id": 20
+    }
+  ]
+}
