@@ -36,7 +36,6 @@ router.post("/", async (req, res) => {
 		const account = await getAccount(req.body.accountId).lean();
 		const category = await getOneCategory(req.body.categoryId).lean();
 
-		console.log(account);
 		account.amount = calculateAmount(transactions, account._id, "account");
 
 		category.amount = calculateAmount(
@@ -44,7 +43,7 @@ router.post("/", async (req, res) => {
 			category._id,
 			"category"
 		);
-		console.log(account);
+
 		res.send({
 			account: mapAccount(account),
 			category: mapCategory(category),
@@ -56,7 +55,6 @@ router.post("/", async (req, res) => {
 
 router.patch("/:id", async (req, res) => {
 	try {
-		console.log("ya tut");
 		const updateTransaction = await editTransaction(
 			req.params.id,
 			req.body
@@ -68,12 +66,8 @@ router.patch("/:id", async (req, res) => {
 
 		let newCategory = null;
 		let newAccount = null;
-		console.log(
-			req.body.categoryId,
-			updateTransaction.categoryId.toString()
-		);
+
 		if (req.body.categoryId !== updateTransaction.categoryId.toString()) {
-			console.log("kek");
 			newCategory = categories
 				.filter(
 					({ _id }) =>
@@ -162,8 +156,6 @@ router.get("/balance", async (req, res) => {
 		req.query.page,
 		req.query.sort
 	);
-
-	console.log("balance");
 
 	const balanceDateTransactions = transactions.reduce(
 		(acc, { createdAt, amount, type }) => {

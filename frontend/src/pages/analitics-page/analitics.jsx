@@ -15,7 +15,7 @@ import { selectAccounts, selectCategories, selectUserId } from '../../selectors'
 import styled from 'styled-components';
 import { Select } from '../../components';
 import { useEffect, useState } from 'react';
-import { useRequestData, useSelectValues, useServerRequest } from '../../hooks';
+import { useSelectValues } from '../../hooks';
 import { request } from '../../utils';
 
 Chart.register(
@@ -31,7 +31,6 @@ Chart.register(
 
 export const AnaliticsContainer = ({ className }) => {
 	const userId = useSelector(selectUserId);
-	const serverRequest = useServerRequest();
 
 	// useRequestData(userId);
 
@@ -49,10 +48,9 @@ export const AnaliticsContainer = ({ className }) => {
 		request(
 			`/api/transaction/balance?userId=${userId}&accountId=${selectValues.select2}&sort=asc`,
 		).then((res) => {
-			console.log(res.data.balanceDateTransactions.accTransactions);
 			setAccountTransactionData(res.data.balanceDateTransactions.accTransactions);
 		});
-	}, [selectValues.select2, serverRequest, userId]);
+	}, [selectValues.select2, userId]);
 
 	const categoryData = categories.filter(({ type }) => type === selectValues.select1);
 

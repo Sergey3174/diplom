@@ -7,7 +7,6 @@ import {
 	selectUserId,
 } from '../../selectors';
 import { HistoryItem, Pagination, ControlPanel } from './components';
-import { useServerRequest } from '../../hooks';
 import { useEffect, useState } from 'react';
 import { ACTION_TYPE } from '../../actions';
 import { Loader } from '../../components';
@@ -26,7 +25,6 @@ const HistoryPageContainer = ({ className }) => {
 	const limit = 10;
 	const refreshFlag = () => setRefresh((prev) => !prev);
 
-	const serverRequest = useServerRequest();
 	const userId = useSelector(selectUserId);
 
 	useEffect(() => {
@@ -39,13 +37,12 @@ const HistoryPageContainer = ({ className }) => {
 			}`,
 		)
 			.then(({ data }) => {
-				console.log(data);
 				const { transactions, lastPage } = data;
 				setLastPage(lastPage);
 				setTransactions(transactions);
 			})
 			.finally(() => dispatch({ type: ACTION_TYPE.SET_LOADING }));
-	}, [serverRequest, userId, page, refresh, parametrs, dispatch]);
+	}, [userId, page, refresh, parametrs, dispatch]);
 
 	return (
 		<div className={className}>

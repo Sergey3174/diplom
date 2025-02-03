@@ -4,8 +4,6 @@ const Comment = require("../models/Comment");
 
 // Функция для добавления транзакции
 async function addTransaction(transaction) {
-	console.log(transaction);
-
 	// Создание новых ObjectId с использованием ключевого слова "new"
 	const accountObjectId = new mongoose.Types.ObjectId(transaction.accountId);
 	const categoryObjectId = new mongoose.Types.ObjectId(

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Card } from './components';
-import { useRequestData, useRequestTransactions } from '../../hooks';
+import { useRequestData } from '../../hooks';
 import { ContentContainer, ItemCard } from './components/card/components';
 import { useSelector } from 'react-redux';
 import { selectAccounts, selectCategories, selectUserId } from '../../selectors';

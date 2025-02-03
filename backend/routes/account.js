@@ -28,7 +28,7 @@ const router = express.Router({ mergeParams: true });
 router.post("/", async (req, res) => {
 	try {
 		const newAccount = await addAccount(req.body);
-		console.log(mapAccount({ ...newAccount, amount: 0 }));
+
 		res.send({ data: mapAccount({ ...newAccount, amount: 0 }) });
 	} catch (e) {
 		res.send({ error: e.message });
@@ -62,7 +62,7 @@ router.delete("/:id", async (req, res) => {
 router.post("/type_account", async (req, res) => {
 	try {
 		const newTypeAccount = await addTypeAccount(req.body.name);
-		console.log(mapTypeAccount(newTypeAccount));
+
 		res.send({ data: mapTypeAccount(newTypeAccount) });
 	} catch (e) {
 		res.send({ error: e.message });

@@ -11,7 +11,6 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { AuthFormError, Button, IconButton } from '../../components';
-import { useServerRequest } from '../../hooks';
 import { CLOSE_MODAL, logout, openModal, updateUser } from '../../actions';
 import { useNavigate } from 'react-router-dom';
 import { request } from '../../utils';
@@ -57,7 +56,6 @@ const UserPageContainer = ({ className }) => {
 		resolver: yupResolver(authFormSchema),
 	});
 	const [serverError, setServerError] = useState(null);
-	const requestServer = useServerRequest();
 	const [isChange, setIsChange] = useState({
 		name: false,
 		login: false,

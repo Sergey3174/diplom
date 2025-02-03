@@ -1,5 +1,5 @@
 export function request(url, method, data) {
-	console.log(url, method, data);
+	console.log(url);
 	return fetch(url, {
 		headers: {
 			'Content-Type': 'application/json;charset=utf-8',
@@ -9,6 +9,6 @@ export function request(url, method, data) {
 	})
 		.then((res) => res.json())
 		.catch((error) => {
-			console.error('Что-то пошло не так:', error); // Обрабатываем ошибку
+			console.error('Что-то пошло не так:', error);
 		});
 }

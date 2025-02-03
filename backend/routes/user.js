@@ -38,16 +38,11 @@ router.get(
 
 router.patch("/:id", async (req, res) => {
 	try {
-		console.log(req.body);
-		console.log(req.params.id);
-
 		if (req.body.password) {
-			console.log(req.body.password);
 			await replacePassword(req.params.id, req.body.password);
 		}
 
 		if (req.body.login) {
-			console.log(req.body.login);
 			await replaceLogin(req.params.id, req.body.login);
 		}
 

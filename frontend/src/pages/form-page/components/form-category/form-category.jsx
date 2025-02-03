@@ -5,14 +5,14 @@ import { useSelector } from 'react-redux';
 import { selectCategories, selectUserId } from '../../../../selectors';
 import { useMatch, useParams } from 'react-router-dom';
 import TRASH from '../../../../assets/trash.png';
-import { useServerRequest } from '../../../../hooks';
+
 import { saveCategoryAsync } from '../../../../actions';
 
 const FormCategoryContainer = ({ className, onSave }) => {
 	const [select, setSelect] = useState('');
 	const [nameCategory, setNameCategory] = useState('');
 	const [errors, setErrors] = useState({});
-	const requestServer = useServerRequest();
+
 	const isCreating = !!useMatch('/category');
 	const userId = useSelector(selectUserId);
 	const { id: idCategory } = useParams();

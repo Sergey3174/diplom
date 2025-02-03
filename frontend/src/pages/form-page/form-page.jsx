@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { useServerRequest } from '../../hooks';
 import { FormAccount, FormCategory, FormTransaction } from './components';
 import { IconButton } from '../../components';
 import BACK_ICON from '../../assets/back.png';
@@ -8,7 +7,6 @@ import { useDispatch } from 'react-redux';
 import { request } from '../../utils';
 
 const FormPageContainer = ({ className }) => {
-	const requestServer = useServerRequest();
 	const navigate = useNavigate();
 	const { pathname } = useLocation();
 	const { id } = useParams();

@@ -8,7 +8,7 @@ import ADD_ICON from '../../../../assets/add-icon.svg';
 import V_ICON from '../../../../assets/V.png';
 import X_ICON from '../../../../assets/X.png';
 import { addTypeAccountAsync, saveAccountAsync } from '../../../../actions';
-import { useServerRequest } from '../../../../hooks';
+
 import TRASH from '../../../../assets/trash.png';
 
 const FormAccountContainer = ({ className, onSave }) => {
@@ -50,7 +50,6 @@ const FormAccountContainer = ({ className, onSave }) => {
 
 	const handleSelectChange = (name, value) => setSelect(value);
 
-	const requestServer = useServerRequest();
 	const [newTypeAccount, setNewTypeAccount] = useState('');
 	const onTypeChange = ({ target }) => setNewTypeAccount(target.value);
 	const dispatch = useDispatch();

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAccounts, selectCategories, selectUserId } from '../../../../selectors';
 import { useMatch, useNavigate, useParams } from 'react-router-dom';
-import { useSelectValues, useServerRequest } from '../../../../hooks';
+import { useSelectValues } from '../../../../hooks';
 import TRASH from '../../../../assets/trash.png';
 import ADD_ICON from '../../../../assets/add-icon.svg';
 import {
@@ -26,11 +26,9 @@ const FormTransactionContainer = ({ className, onSave }) => {
 	const userId = useSelector(selectUserId);
 	const { categories } = useSelector(selectCategories);
 	const { accounts } = useSelector(selectAccounts);
-	const requestServer = useServerRequest();
+
 	const { id: idTransaction } = useParams();
 	const dispatch = useDispatch();
-
-	console.log(idTransaction);
 
 	useEffect(() => {
 		if (!isCreating) {
@@ -96,7 +94,7 @@ const FormTransactionContainer = ({ className, onSave }) => {
 		if (isCreating) {
 			onSave(event, saveTransactionAsync(data));
 		} else {
-			console.log(data);
+			console.log(typeof idTransaction);
 			onSave(event, updateTransactionAsync(idTransaction, data));
 		}
 	};

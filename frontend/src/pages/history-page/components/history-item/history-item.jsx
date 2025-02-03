@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import TRASH from '../../../../assets/trash.png';
 import PENCIL from '../../../../assets/pencil.png';
 import { useNavigate } from 'react-router-dom';
-import { useServerRequest } from '../../../../hooks';
 import { IconButton, StyleSpan } from '../../../../components';
 import { CLOSE_MODAL, openModal, removeTransactionAsync } from '../../../../actions';
 import { useDispatch } from 'react-redux';
@@ -20,7 +19,6 @@ const HistoryItemContainer = ({
 	categoryId,
 	userId,
 }) => {
-	const serverRequest = useServerRequest();
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 

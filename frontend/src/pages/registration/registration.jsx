@@ -2,7 +2,6 @@ import { useForm } from 'react-hook-form';
 import { Navigate } from 'react-router-dom';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { server } from '../../bff';
 import { useState } from 'react';
 import { Input, Button, AuthFormError } from '../../components';
 import { useResetForm } from '../../hooks';
@@ -61,7 +60,7 @@ const RegistrationContainer = ({ className }) => {
 				setServerError(`Ошибка запроса: ${error}`);
 				return;
 			}
-			console.log(user);
+
 			dispatch(setUser(user));
 			sessionStorage.setItem('userData', JSON.stringify(user));
 		});

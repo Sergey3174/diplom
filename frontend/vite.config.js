@@ -10,12 +10,13 @@ export default defineConfig({
 		proxy: {
 			'/api': {
 				target: 'http://localhost:3001',
+				changeOrigin: true,
 			},
-			'/transaction': {
-				target: 'http://localhost:3001', // Адрес вашего сервера бэкенда
-				changeOrigin: true, // Меняет источник для предотвращения CORS
-				rewrite: (path) => path.replace(/^\/transaction/, ''), // Убирает /transaction из пути, если нужно
-			},
+			// '/transaction': {
+			// 	target: 'http://localhost:3001', // Адрес вашего сервера бэкенда
+			// 	changeOrigin: true, // Меняет источник для предотвращения CORS
+			// 	rewrite: (path) => path.replace(/^\/transaction/, ''), // Убирает /transaction из пути, если нужно
+			// },
 		},
 	},
 });
