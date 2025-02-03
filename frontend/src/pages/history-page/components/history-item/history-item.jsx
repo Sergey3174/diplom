@@ -15,9 +15,6 @@ const HistoryItemContainer = ({
 	id,
 	type,
 	refreshFlag,
-	accountId,
-	categoryId,
-	userId,
 }) => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();

@@ -61,7 +61,6 @@ const HistoryPageContainer = ({ className }) => {
 							accountId,
 							id,
 							type,
-							categoryId,
 						}) => (
 							<HistoryItem
 								key={id}
@@ -71,12 +70,9 @@ const HistoryPageContainer = ({ className }) => {
 								account={accounts.find(
 									({ id: accId }) => accId === accountId,
 								)}
-								accountId={accountId}
-								categoryId={categoryId}
 								type={type}
 								id={id}
 								refreshFlag={refreshFlag}
-								userId={userId}
 							/>
 						),
 					)

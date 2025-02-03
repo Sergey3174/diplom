@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import UserAvatar from '../../../../assets/user-svgrepo-com.svg';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUserLogin, selectUserSession } from '../../../../selectors';
+import { selectUserLogin } from '../../../../selectors';
 import { logout } from '../../../../actions';
 import { Button } from '../../../button/button';
 import { useNavigate } from 'react-router-dom';

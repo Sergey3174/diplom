@@ -8,7 +8,6 @@ import styled from 'styled-components';
 import { setUser } from '../../actions';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUserLogin } from '../../selectors';
-// import { ROLE } from '../../constans';
 import { useResetForm } from '../../hooks';
 import { request } from '../../utils';
 

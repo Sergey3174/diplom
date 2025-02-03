@@ -27,7 +27,7 @@ const mapCategory = require("../helpers/mapCategory");
 
 const router = express.Router({ mergeParams: true });
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", authenticated, async (req, res) => {
 	const category = await getOneCategory(req.params.id);
 
 	res.send({
@@ -35,7 +35,7 @@ router.get("/:id", async (req, res) => {
 	});
 });
 
-router.post("/", async (req, res) => {
+router.post("/", authenticated, async (req, res) => {
 	try {
 		const newCategory = await addCategory(req.body);
 
@@ -45,7 +45,7 @@ router.post("/", async (req, res) => {
 	}
 });
 
-router.patch("/:id", async (req, res) => {
+router.patch("/:id", authenticated, async (req, res) => {
 	try {
 		const updateCategory = await editCategory(req.params.id, req.body);
 
@@ -59,7 +59,7 @@ router.patch("/:id", async (req, res) => {
 	}
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", authenticated, async (req, res) => {
 	await deleteCategory(req.params.id);
 	await deleteTransactionByCategory(req.params.id);
 	res.send({ error: null });

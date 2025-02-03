@@ -24,7 +24,7 @@ const mapTransaction = require("../helpers/mapTransaction");
 
 const router = express.Router({ mergeParams: true });
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", authenticated, async (req, res) => {
 	const transactions = await getTransactions(req.params.id).lean();
 	const accounts = await getAccounts(req.params.id).lean();
 	const categories = await getCategory(req.params.id).lean();

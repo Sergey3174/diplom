@@ -5,7 +5,6 @@ const initialUserState = {
 	login: null,
 	name: null,
 	email: null,
-	session: null,
 };
 
 export const userReducer = (state = initialUserState, action) => {

@@ -29,7 +29,7 @@ const mapTransaction = require("../helpers/mapTransaction");
 
 const router = express.Router({ mergeParams: true });
 
-router.post("/", async (req, res) => {
+router.post("/", authenticated, async (req, res) => {
 	try {
 		const newTransaction = await addTransaction(req.body);
 		const transactions = await getTransactions(req.body.userId).lean();
@@ -53,7 +53,7 @@ router.post("/", async (req, res) => {
 	}
 });
 
-router.patch("/:id", async (req, res) => {
+router.patch("/:id", authenticated, async (req, res) => {
 	try {
 		const updateTransaction = await editTransaction(
 			req.params.id,
@@ -126,7 +126,7 @@ router.patch("/:id", async (req, res) => {
 	}
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", authenticated, async (req, res) => {
 	const removeTransaction = await deleteTransaction(req.params.id);
 
 	const transactions = await getTransactions(removeTransaction.userId).lean();
@@ -146,7 +146,7 @@ router.delete("/:id", async (req, res) => {
 	});
 });
 
-router.get("/balance", async (req, res) => {
+router.get("/balance", authenticated, async (req, res) => {
 	const { transactions, lastPage } = await getQueryTransactions(
 		req.query.userId,
 		req.query.type,
@@ -175,7 +175,7 @@ router.get("/balance", async (req, res) => {
 	res.send({ data: { balanceDateTransactions } });
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", authenticated, async (req, res) => {
 	const transaction = await getTransaction(req.params.id);
 
 	res.send({
@@ -183,7 +183,7 @@ router.get("/:id", async (req, res) => {
 	});
 });
 
-router.get("/", async (req, res) => {
+router.get("/", authenticated, async (req, res) => {
 	const { transactions, lastPage } = await getQueryTransactions(
 		req.query.userId,
 		req.query.type,

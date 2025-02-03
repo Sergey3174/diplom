@@ -36,7 +36,7 @@ router.get(
 	}
 );
 
-router.patch("/:id", async (req, res) => {
+router.patch("/:id", authenticated, async (req, res) => {
 	try {
 		if (req.body.password) {
 			await replacePassword(req.params.id, req.body.password);
@@ -57,7 +57,7 @@ router.patch("/:id", async (req, res) => {
 	}
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", authenticated, async (req, res) => {
 	await deleteUser(req.params.id);
 	await deleteTransactionByUser(req.params.id);
 	await deleteAccountByUser(req.params.id);

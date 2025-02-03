@@ -4,7 +4,6 @@ import { useRequestData } from '../../hooks';
 import { ContentContainer, ItemCard } from './components/card/components';
 import { useSelector } from 'react-redux';
 import { selectAccounts, selectCategories, selectUserId } from '../../selectors';
-import { StyleSpan } from '../../components';
 import { calculateBalance, filterType } from '../../utils';
 
 const MainPageContainer = ({ className }) => {
@@ -13,8 +12,6 @@ const MainPageContainer = ({ className }) => {
 	const { categories } = useSelector(selectCategories);
 
 	const { lastIncomeTransactions, lastExpenseTransactions } = useRequestData(userId);
-	// const lastIncomeTransactions = useRequestTransactions('income');
-	// const lastExpenseTransactions = useRequestTransactions('expense');
 
 	const incomeCategories = filterType(categories, 'income');
 	const expenseCategories = filterType(categories, 'expense');

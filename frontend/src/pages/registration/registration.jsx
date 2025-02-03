@@ -8,7 +8,7 @@ import { useResetForm } from '../../hooks';
 import styled from 'styled-components';
 import { setUser } from '../../actions';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectUserLogin, selectUserRole } from '../../selectors';
+import { selectUserLogin } from '../../selectors';
 import { request } from '../../utils';
 
 const regFormSchema = yup.object().shape({
@@ -49,7 +49,7 @@ const RegistrationContainer = ({ className }) => {
 	});
 
 	const [serverError, setServerError] = useState(null);
-	// const roleId = useSelector(selectUserRole);
+
 	const user = useSelector(selectUserLogin);
 
 	const dispatch = useDispatch();
