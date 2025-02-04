@@ -33,4 +33,8 @@ export const ItemCard = styled(ItemCardContainer)`
 		transform: scale(0.99); /* Легкое увеличение при наведении */
 		transition: color 0.2s ease, transform 0.2s ease;
 	}
+
+	@media (max-width: 1000px) {
+		font-size: 0.6rem;
+	}
 `;

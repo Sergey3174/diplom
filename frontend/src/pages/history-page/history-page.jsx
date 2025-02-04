@@ -38,6 +38,10 @@ const HistoryPageContainer = ({ className }) => {
 		)
 			.then(({ data }) => {
 				const { transactions, lastPage } = data;
+				if (page > 1 && !transactions.length) {
+					setPage(page - 1);
+					return;
+				}
 				setLastPage(lastPage);
 				setTransactions(transactions);
 			})

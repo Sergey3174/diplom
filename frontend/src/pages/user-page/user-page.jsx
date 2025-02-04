@@ -42,7 +42,6 @@ const UserPageContainer = ({ className }) => {
 	const user = useSelector(selectUser);
 	const {
 		register,
-		reset,
 		handleSubmit,
 		formState: { errors },
 		setValue,
@@ -121,7 +120,6 @@ const UserPageContainer = ({ className }) => {
 				email: false,
 				password: false,
 			});
-			reset();
 		});
 	};
 

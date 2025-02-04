@@ -138,7 +138,7 @@ export const Analitics = styled(AnaliticsContainer)`
 	margin: 5px 0;
 	display: flex;
 	width: 100%;
-	height: 100vh;
+	min-height: 100vh;
 	flex-wrap: wrap;
 	gap: 10px;
 	justify-content: center;

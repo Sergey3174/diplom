@@ -16,6 +16,14 @@ async function register(login, password) {
 }
 
 async function replacePassword(id, password) {
+	const user = await User.findOne({ _id: id });
+
+	const isPasswordMatch = await bcrypt.compare(password, user.password);
+
+	if (isPasswordMatch) {
+		throw new Error("Придумайте новый пароль");
+	}
+
 	const passwordHash = await bcrypt.hash(password, 10);
 
 	await User.findByIdAndUpdate(id, { password: passwordHash });

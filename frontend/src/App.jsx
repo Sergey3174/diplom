@@ -29,6 +29,7 @@ const Page = styled.div`
 
 	@media (max-width: 1000px) {
 		margin: 80px 0px 70px 0px;
+		font-size: 0.8rem;
 	}
 `;
 
