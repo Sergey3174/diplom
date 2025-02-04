@@ -1,27 +1,22 @@
 const mongoose = require("mongoose");
 const Transaction = require("../models/Transactions");
-const Comment = require("../models/Comment");
 
-// Функция для добавления транзакции
 async function addTransaction(transaction) {
-	// Создание новых ObjectId с использованием ключевого слова "new"
 	const accountObjectId = new mongoose.Types.ObjectId(transaction.accountId);
 	const categoryObjectId = new mongoose.Types.ObjectId(
 		transaction.categoryId
 	);
-	const userObjectId = new mongoose.Types.ObjectId(transaction.userId); // Исправлено на userId
+	const userObjectId = new mongoose.Types.ObjectId(transaction.userId);
 
-	// Создание новой транзакции
 	const newTransaction = await Transaction.create({
 		userId: userObjectId,
 		accountId: accountObjectId,
 		categoryId: categoryObjectId,
-		type: transaction.type, // Используем данные из переданного объекта
+		type: transaction.type,
 		description: transaction.description,
 		amount: transaction.amount,
 	});
 
-	// Возвращаем созданную транзакцию
 	return newTransaction;
 }
 
@@ -46,7 +41,7 @@ async function editTransaction(id, transaction) {
 			userId: userObjectId,
 			accountId: accountObjectId,
 			categoryId: categoryObjectId,
-			type: transaction.type, // Используем данные из переданного объекта
+			type: transaction.type,
 			description: transaction.description,
 			amount: transaction.amount,
 		},
@@ -67,10 +62,7 @@ function getTransaction(id) {
 }
 
 async function updateTypeTransaction(id, type) {
-	await Transaction.updateMany(
-		{ categoryId: id }, // Условие: выбираем транзакции по categoryId
-		{ $set: { type: type } } // Обновляем поле status
-	);
+	await Transaction.updateMany({ categoryId: id }, { $set: { type: type } });
 }
 
 async function deleteTransactionByCategory(id) {

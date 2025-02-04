@@ -49,18 +49,6 @@ async function login(login, password) {
 	return { user, token };
 }
 
-function getUsers() {
-	return User.find();
-}
-
-function getRoles() {
-	return [
-		{ id: ROLES.ADMIN, name: "Admin" },
-		{ id: ROLES.MODERATOR, name: "Moderator" },
-		{ id: ROLES.USER, name: "User" },
-	];
-}
-
 function deleteUser(id) {
 	return User.deleteOne({ _id: id });
 }
@@ -78,8 +66,6 @@ function updateUser(id, userData) {
 module.exports = {
 	register,
 	login,
-	getUsers,
-	getRoles,
 	deleteUser,
 	updateUser,
 	replacePassword,

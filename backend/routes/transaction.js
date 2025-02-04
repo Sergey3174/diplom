@@ -1,17 +1,5 @@
 const express = require("express");
-const {
-	getPosts,
-	getPost,
-	addPost,
-	editPost,
-	deletePost,
-} = require("../controllers/post");
-const { addComment, deleteComment } = require("../controllers/comment");
 const authenticated = require("../middlewares/authenticated");
-const hasRole = require("../middlewares/hasRole");
-const mapPost = require("../helpers/mapPost");
-const mapComment = require("../helpers/mapComment");
-const ROLES = require("../constants/roles");
 const {
 	addTransaction,
 	editTransaction,
@@ -26,6 +14,7 @@ const { getCategory, getOneCategory } = require("../controllers/category");
 const mapAccount = require("../helpers/mapAccount");
 const mapCategory = require("../helpers/mapCategory");
 const mapTransaction = require("../helpers/mapTransaction");
+const dateTransform = require("../helpers/date-transform");
 
 const router = express.Router({ mergeParams: true });
 
@@ -165,13 +154,16 @@ router.get("/balance", authenticated, async (req, res) => {
 					? currentAmount + amount
 					: currentAmount - amount;
 
-			acc.accTransactions.push({ createdAt, balance: newAmount });
+			acc.accTransactions.push({
+				createdAt: dateTransform(createdAt),
+				balance: newAmount,
+			});
 			acc.currentAmount = newAmount;
-
 			return acc;
 		},
 		{ currentAmount: 0, accTransactions: [] }
 	);
+
 	res.send({ data: { balanceDateTransactions } });
 });
 

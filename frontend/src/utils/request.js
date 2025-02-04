@@ -1,5 +1,4 @@
 export function request(url, method, data) {
-	console.log(url);
 	return fetch(url, {
 		headers: {
 			'Content-Type': 'application/json;charset=utf-8',

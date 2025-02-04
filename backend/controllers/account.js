@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Account = require("../models/Accounts");
-const Comment = require("../models/Comment");
 
 async function addAccount(account) {
 	const userObjectId = new mongoose.Types.ObjectId(account.userId);

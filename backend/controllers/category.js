@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Category = require("../models/Categories");
-const Comment = require("../models/Comment");
 
 async function addCategory(category) {
 	const userObjectId = new mongoose.Types.ObjectId(category.userId);

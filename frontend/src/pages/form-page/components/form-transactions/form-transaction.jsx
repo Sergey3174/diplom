@@ -94,7 +94,6 @@ const FormTransactionContainer = ({ className, onSave }) => {
 		if (isCreating) {
 			onSave(event, saveTransactionAsync(data));
 		} else {
-			console.log(typeof idTransaction);
 			onSave(event, updateTransactionAsync(idTransaction, data));
 		}
 	};

@@ -1,17 +1,5 @@
 const express = require("express");
-const {
-	getPosts,
-	getPost,
-	addPost,
-	editPost,
-	deletePost,
-} = require("../controllers/post");
-const { addComment, deleteComment } = require("../controllers/comment");
 const authenticated = require("../middlewares/authenticated");
-const hasRole = require("../middlewares/hasRole");
-const mapPost = require("../helpers/mapPost");
-const mapComment = require("../helpers/mapComment");
-const ROLES = require("../constants/roles");
 const {
 	addAccount,
 	getAccount,
