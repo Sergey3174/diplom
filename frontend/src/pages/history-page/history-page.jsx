@@ -111,4 +111,12 @@ export const HistoryPage = styled(HistoryPageContainer)`
 		margin: 20px auto;
 		border-radius: 5px;
 	}
+
+	@media (max-width: 1000px) {
+		font-size: 0.6rem;
+		& .container-history-item {
+			width: 100%;
+			margin: 20px auto;
+		}
+	}
 `;

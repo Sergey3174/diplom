@@ -17,11 +17,19 @@ import { useDispatch } from 'react-redux';
 
 const AppFlex = styled.div`
 	display: flex;
+
+	@media (max-width: 1000px) {
+		display: inline-blok;
+	}
 `;
 
 const Page = styled.div`
 	margin: 0 10px 0 280px;
 	width: 100%;
+
+	@media (max-width: 1000px) {
+		margin: 80px 0px 70px 0px;
+	}
 `;
 
 function App() {

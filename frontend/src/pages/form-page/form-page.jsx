@@ -63,5 +63,9 @@ export const FormPage = styled(FormPageContainer)`
 	overflow: hidden;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	transition: transform 0.2s;
-	position: relative;
+
+	@media (max-width: 1000px) {
+		width: 100%;
+		box-sizing: border-box;
+	}
 `;

@@ -66,4 +66,10 @@ export const Select = styled(SelectContainer)`
 		display: block;
 		width: 40%;
 	}
+
+	@media (max-width: 1000px) {
+		& .select-style {
+			font-size: 0.6rem;
+		}
+	}
 `;

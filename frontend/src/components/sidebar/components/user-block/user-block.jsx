@@ -50,4 +50,23 @@ export const UserBlock = styled(UserBlockContainer)`
 		width: 65%;
 		border-radius: 50%;
 	}
+
+	@media (max-width: 1000px) {
+		position: static;
+		transform: none;
+		display: flex;
+		width: auto;
+		flex-direction: row;
+
+		& > img {
+			width: 40px;
+			border-radius: 50%;
+		}
+
+		& > button {
+			margin: 0 5px;
+			font-size: 0.5rem;
+			width: auto;
+		}
+	}
 `;

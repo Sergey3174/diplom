@@ -62,4 +62,31 @@ export const SideBar = styled(SideBarContainer)`
 			color: white;
 		}
 	}
+
+	@media (max-width: 1000px) {
+		width: 100%;
+		height: 50px;
+		display: flex;
+		padding: 10px;
+		justify-content: space-between;
+		z-index: 100;
+		align-items: center;
+
+		& ul {
+			display: flex;
+			align-items: center;
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			justify-content: space-around;
+			background-color: white;
+			margin: 0;
+			left: 0;
+			padding: 3px;
+		}
+
+		& ul li {
+			margin-bottom: 0;
+		}
+	}
 `;
