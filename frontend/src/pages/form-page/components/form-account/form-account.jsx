@@ -10,6 +10,7 @@ import X_ICON from '../../../../assets/X.png';
 import { addTypeAccountAsync, saveAccountAsync } from '../../../../actions';
 
 import TRASH from '../../../../assets/trash.png';
+import { ErrorPage } from '../../../error-page/error-page';
 
 const FormAccountContainer = ({ className, onSave }) => {
 	const [select, setSelect] = useState('');
@@ -19,6 +20,7 @@ const FormAccountContainer = ({ className, onSave }) => {
 	const typeAccounts = useSelector(selectAccountsTypes);
 	const { accounts } = useSelector(selectAccounts);
 	const isCreating = !!useMatch('/account');
+	const [errorFetch, setErrorFetch] = useState(null);
 
 	const userId = useSelector(selectUserId);
 
@@ -37,12 +39,17 @@ const FormAccountContainer = ({ className, onSave }) => {
 	};
 
 	useEffect(() => {
-		if (isCreating) {
+		if (isCreating || accounts.length === 0) {
 			return;
 		} else {
 			const account = accounts.find((acc) => acc.id === idAccount);
-			setSelect(account.type_accounts);
-			setNameAccount(account.name);
+			console.log(account);
+			if (!account) {
+				setErrorFetch('Такого счета не cуществует');
+				return;
+			}
+			setSelect(account?.type_accounts);
+			setNameAccount(account?.name);
 		}
 	}, [isCreating, accounts, idAccount]);
 
@@ -70,6 +77,10 @@ const FormAccountContainer = ({ className, onSave }) => {
 				: onSave(event, `/api/account/${idAccount}`, 'PATCH', data);
 		}
 	};
+
+	if (errorFetch) {
+		return <ErrorPage error={errorFetch} />;
+	}
 
 	return (
 		<form className={className}>

@@ -7,11 +7,13 @@ import { useMatch, useParams } from 'react-router-dom';
 import TRASH from '../../../../assets/trash.png';
 
 import { saveCategoryAsync } from '../../../../actions';
+import { ErrorPage } from '../../../error-page/error-page';
 
 const FormCategoryContainer = ({ className, onSave }) => {
 	const [select, setSelect] = useState('');
 	const [nameCategory, setNameCategory] = useState('');
 	const [errors, setErrors] = useState({});
+	const [errorFetch, setErrorFetch] = useState(null);
 
 	const isCreating = !!useMatch('/category');
 	const userId = useSelector(selectUserId);
@@ -19,10 +21,15 @@ const FormCategoryContainer = ({ className, onSave }) => {
 	const { categories } = useSelector(selectCategories);
 
 	useEffect(() => {
-		if (!isCreating) {
+		if (!isCreating && categories.length !== 0) {
+			console.log('tut');
 			const category = categories.find((cat) => cat.id === idCategory);
-			setSelect(category.type);
-			setNameCategory(category.name);
+			if (!category) {
+				setErrorFetch('Такой категории не существует');
+				return;
+			}
+			setSelect(category?.type);
+			setNameCategory(category?.name);
 		}
 	}, [isCreating, categories, idCategory]);
 
@@ -55,6 +62,10 @@ const FormCategoryContainer = ({ className, onSave }) => {
 				: onSave(event, `/api/category/${idCategory}`, 'PATCH', data);
 		}
 	};
+
+	if (errorFetch) {
+		return <ErrorPage error={errorFetch} />;
+	}
 
 	return (
 		<form className={className}>

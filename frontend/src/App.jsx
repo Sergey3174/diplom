@@ -1,4 +1,4 @@
-import { Outlet, Route, Routes } from 'react-router-dom';
+import { Outlet, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { Modal, PrivateRoute, SideBar } from './components';
 import {
 	Authorization,
@@ -8,18 +8,58 @@ import {
 	Analitics,
 	Registration,
 	UserPage,
+	ErrorPage,
 } from './pages';
 
 import styled from 'styled-components';
-import { useLayoutEffect } from 'react';
-import { setUser } from './actions';
-import { useDispatch } from 'react-redux';
+import { useEffect, useLayoutEffect, useState } from 'react';
+import { loadDataAsync, setUser } from './actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { useRequestData } from './hooks';
+import { selectUserId } from './selectors';
 
-const AppFlex = styled.div`
+const AppFlexContainer = ({ className, children }) => {
+	const navigate = useNavigate();
+	const location = useLocation();
+	const [initialized, setInitialized] = useState(false); // флаг для контроля инициализации
+	const userId = useSelector(selectUserId);
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		if (
+			initialized &&
+			location.pathname !== '/' &&
+			location.pathname !== '/history-page'
+		) {
+			dispatch(loadDataAsync(userId));
+		}
+	}, [dispatch, userId, location.pathname, initialized]);
+
+	useEffect(() => {
+		// Сохраняем текущий маршрут в sessionStorage при каждом изменении маршрута
+		sessionStorage.setItem('lastRoute', location.pathname);
+	}, [location.pathname]);
+
+	useEffect(() => {
+		// Перенаправляем на последний маршрут при перезагрузке страницы только один раз
+		if (initialized) return; // Ожидаем, пока компонент полностью загружен
+		const lastRoute = sessionStorage.getItem('lastRoute');
+
+		if (lastRoute && lastRoute !== location.pathname) {
+			navigate(lastRoute); // Перенаправляем на последний маршрут, если он существует
+		}
+
+		setInitialized(true); // После перенаправления ставим флаг, чтобы избежать повторных перенаправлений
+	}, [navigate, location.pathname, initialized]);
+
+	return <div className={className}>{children}</div>;
+};
+
+const AppFlex = styled(AppFlexContainer)`
 	display: flex;
 
 	@media (max-width: 1000px) {
-		display: inline-blok;
+		display: inline-block;
 	}
 `;
 
@@ -36,6 +76,7 @@ const Page = styled.div`
 function App() {
 	const dispatch = useDispatch();
 
+	// Загружаем данные пользователя из sessionStorage только при первом рендере
 	useLayoutEffect(() => {
 		const currentUserDataJSON = sessionStorage.getItem('userData');
 
@@ -79,6 +120,10 @@ function App() {
 					<Route path="/account/:id" element={<FormPage />} />
 					<Route path="/analitics" element={<Analitics />} />
 					<Route path="/user-page" element={<UserPage />} />
+					<Route
+						path="*"
+						element={<ErrorPage error="Такой страницы не существует" />}
+					/>
 				</Route>
 				<Route path="/register" element={<Registration />} />
 				<Route path="/login" element={<Authorization />} />

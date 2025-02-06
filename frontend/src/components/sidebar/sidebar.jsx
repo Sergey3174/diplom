@@ -1,28 +1,27 @@
 import styled from 'styled-components';
 import { Logo, UserBlock } from './components';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useMemo, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { menuItems } from '../../constants/menuItem';
 
 const SideBarContainer = ({ className }) => {
 	const [activeIndex, setActiveIndex] = useState(0);
+	const location = useLocation();
 
-	const menuItems = [
-		{ name: 'Главная', to: '/' },
-		{ name: 'История', to: '/history' },
-		{ name: 'Аналитика', to: '/analitics' },
-	];
+	const Menu = useMemo(() => menuItems, []);
+	useEffect(() => {
+		Menu.forEach((item, index) =>
+			item.to === location.pathname ? setActiveIndex(index) : null,
+		);
+	}, [location, Menu]);
+
 	return (
 		<div className={className}>
 			<Logo />
 			<ul>
 				{menuItems.map(({ name, to }, index) => (
 					<Link to={to} key={index}>
-						<li
-							onClick={() => setActiveIndex(index)}
-							className={activeIndex === index ? 'active' : ''}
-						>
-							{name}
-						</li>
+						<li className={activeIndex === index ? 'active' : ''}>{name}</li>
 					</Link>
 				))}
 			</ul>

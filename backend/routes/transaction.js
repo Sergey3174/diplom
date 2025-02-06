@@ -168,11 +168,15 @@ router.get("/balance", authenticated, async (req, res) => {
 });
 
 router.get("/:id", authenticated, async (req, res) => {
-	const transaction = await getTransaction(req.params.id);
+	try {
+		const transaction = await getTransaction(req.params.id);
 
-	res.send({
-		transaction: mapTransaction(transaction),
-	});
+		res.send({
+			transaction: mapTransaction(transaction),
+		});
+	} catch (e) {
+		res.send({ error: e.message || "Unknown error" });
+	}
 });
 
 router.get("/", authenticated, async (req, res) => {

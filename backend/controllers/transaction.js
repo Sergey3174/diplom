@@ -57,8 +57,17 @@ function deleteTransaction(id) {
 	return Transaction.findOneAndDelete({ _id: id });
 }
 
-function getTransaction(id) {
-	return Transaction.findById(id);
+async function getTransaction(id) {
+	if (id.length !== 24) {
+		throw new Error("Операция не найдена"); // Если строка, превращаем в ObjectId
+	}
+	const transaction = await Transaction.findById(id);
+
+	if (!transaction) {
+		throw new Error("Операция не найдена");
+	}
+
+	return transaction;
 }
 
 async function updateTypeTransaction(id, type) {

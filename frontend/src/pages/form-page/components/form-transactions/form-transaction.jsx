@@ -14,12 +14,14 @@ import {
 	saveTransactionAsync,
 	updateTransactionAsync,
 } from '../../../../actions';
+import { ErrorPage } from '../../../error-page/error-page';
 
 const FormTransactionContainer = ({ className, onSave }) => {
 	const [selectValues, handleSelectChange] = useSelectValues(3);
 	const [amount, setAmount] = useState('');
 	const [description, setDescription] = useState('');
 	const [errors, setErrors] = useState({});
+	const [errorFetch, setErrorFetch] = useState(null);
 
 	const isCreating = !!useMatch('/transaction');
 	const navigate = useNavigate();
@@ -37,14 +39,15 @@ const FormTransactionContainer = ({ className, onSave }) => {
 					const response = await fetch(`/api/transaction/${idTransaction}`);
 					if (!response.ok) throw new Error('Transaction not found');
 					const data = await response.json();
-
+					if (data.error) throw new Error('Transaction not found');
 					handleSelectChange('select1', data.transaction.type);
 					handleSelectChange('select2', data.transaction.categoryId);
 					handleSelectChange('select3', data.transaction.accountId);
 					setAmount(data.transaction.amount);
 					setDescription(data.transaction.description);
-				} catch (error) {
-					console.error(error);
+				} catch (e) {
+					console.log(e.message);
+					setErrorFetch(e.message);
 				}
 			};
 			fetchTransaction();
@@ -110,6 +113,10 @@ const FormTransactionContainer = ({ className, onSave }) => {
 			}),
 		);
 	};
+
+	if (errorFetch) {
+		return <ErrorPage error={errorFetch} />;
+	}
 
 	return (
 		<form className={className}>

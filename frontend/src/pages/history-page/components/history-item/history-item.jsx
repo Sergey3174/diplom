@@ -11,7 +11,7 @@ const HistoryItemContainer = ({
 	transactionDate,
 	amount,
 	description,
-	account: { name },
+	account, // не деструктурируем здесь { name }
 	id,
 	type,
 	refreshFlag,
@@ -31,6 +31,10 @@ const HistoryItemContainer = ({
 			}),
 		);
 	};
+
+	// Проверка наличия account
+	const accountName = account ? account.name : 'Не указано';
+
 	return (
 		<div className={className}>
 			<div className="container">
@@ -41,7 +45,8 @@ const HistoryItemContainer = ({
 					</StyleSpan>
 				</div>
 				<div>{description}</div>
-				<div>{name}</div>
+				<div>{accountName}</div>{' '}
+				{/* Используем accountName с дефолтным значением */}
 			</div>
 			<IconButton
 				icon={PENCIL}
