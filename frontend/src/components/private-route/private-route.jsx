@@ -1,16 +1,21 @@
+import { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectUserId } from '../../selectors';
 
 export const PrivateRoute = ({ children }) => {
-	// Получаем userId из Redux store
-	const user = sessionStorage.getItem('userData');
-	const userId = useSelector(selectUserId);
-	// Если нет данных о пользователе, перенаправляем на страницу логина
-	if (userId === null) {
-		// Если загрузка данных ещё не завершена, можно показать индикатор загрузки
-		return;
+	const [loading, setLoading] = useState(true);
+	const userId = useSelector(selectUserId); // Получаем userId из Redux store
+
+	useEffect(() => {
+		setLoading(false);
+	}, [userId]);
+
+	// Пока идет загрузка
+	if (loading) {
+		return <div>Загрузка...</div>; // Индикатор загрузки
 	}
 
-	return user ? children : <Navigate to="/login" />;
+	// Если нет данных пользователя, перенаправляем на страницу входа
+	return userId ? children : <Navigate to="/login" />;
 };
