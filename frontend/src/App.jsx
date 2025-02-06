@@ -60,6 +60,7 @@ const AppFlex = styled(AppFlexContainer)`
 
 	@media (max-width: 1000px) {
 		display: inline-block;
+		width: 100%;
 	}
 `;
 

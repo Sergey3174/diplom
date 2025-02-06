@@ -142,38 +142,40 @@ const FormTransactionContainer = ({ className, onSave }) => {
 				onSelectChange={handleSelectChangeWithReset}
 			/>
 			{errors.type && <div style={{ color: 'red' }}>{errors.type}</div>}
-			<Select
-				label="Категория"
-				name="select2"
-				data={filterCategories}
-				value={selectValues.select2}
-				onSelectChange={handleSelectChange}
-			/>
+			<div className="select">
+				<Select
+					label="Категория"
+					name="select2"
+					data={filterCategories}
+					value={selectValues.select2}
+					onSelectChange={handleSelectChange}
+				/>
+				<IconButton
+					onClick={() => navigate('/category')}
+					icon={ADD_ICON}
+					width="30px"
+					position="absolute"
+					right="-40px"
+				/>
+			</div>
 			{errors.category && <div style={{ color: 'red' }}>{errors.category}</div>}
-			<IconButton
-				onClick={() => navigate('/category')}
-				icon={ADD_ICON}
-				width="30px"
-				position="absolute"
-				right="-35px"
-				top="102px"
-			/>
-			<Select
-				label="Счет"
-				name="select3"
-				data={accounts}
-				value={selectValues.select3}
-				onSelectChange={handleSelectChange}
-			/>
-			{errors.account && <div style={{ color: 'red' }}>{errors.account}</div>}
-			<IconButton
-				onClick={() => navigate('/account')}
-				icon={ADD_ICON}
-				width="30px"
-				position="absolute"
-				right="-35px"
-				top="152px"
-			/>
+			<div className="select">
+				<Select
+					label="Счет"
+					name="select3"
+					data={accounts}
+					value={selectValues.select3}
+					onSelectChange={handleSelectChange}
+				/>
+				{errors.account && <div style={{ color: 'red' }}>{errors.account}</div>}
+				<IconButton
+					onClick={() => navigate('/account')}
+					icon={ADD_ICON}
+					width="30px"
+					position="absolute"
+					right="-40px"
+				/>
+			</div>
 			<div>Сумма</div>
 			<Input width="100%" type="number" onChange={onAmountChange} value={amount} />
 			{errors.amount && <div style={{ color: 'red' }}>{errors.amount}</div>}
@@ -193,4 +195,9 @@ export const FormTransaction = styled(FormTransactionContainer)`
 	width: 80%;
 	margin: 0 auto;
 	position: relative;
+
+	& .select {
+		display: flex;
+		align-items: center;
+	}
 `;
