@@ -10,13 +10,7 @@ const InputFormContainer = forwardRef(
 		return (
 			<div className={className}>
 				{title && <div>Новая категория</div>}
-				<Input
-					ref={ref}
-					width="100%"
-					// onChange={onTypeChange}
-					margin="10px 0"
-					{...register}
-				/>
+				<Input ref={ref} width="100%" margin="10px 0" {...register} />
 				<div className="button-confirm-cancel">
 					{!register && (
 						<IconButton

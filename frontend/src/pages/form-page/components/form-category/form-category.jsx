@@ -46,11 +46,11 @@ const FormCategoryContainer = ({ className, onSave }) => {
 			newErrors.name = 'Имя категории обязательно';
 		}
 		setErrors(newErrors);
-		return Object.keys(newErrors).length === 0; // Возвращаем true, если нет ошибок
+		return Object.keys(newErrors).length === 0;
 	};
 
 	const handleClick = (event) => {
-		event.preventDefault(); // Отменяем стандартное поведение формы
+		event.preventDefault();
 		if (validateForm()) {
 			const data = {
 				userId,

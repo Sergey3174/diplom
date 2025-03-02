@@ -32,8 +32,6 @@ Chart.register(
 export const AnaliticsContainer = ({ className }) => {
 	const userId = useSelector(selectUserId);
 
-	// useRequestData(userId);
-
 	const { categories } = useSelector(selectCategories);
 	const { accounts } = useSelector(selectAccounts);
 

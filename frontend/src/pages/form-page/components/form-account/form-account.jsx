@@ -35,7 +35,7 @@ const FormAccountContainer = ({ className, onSave }) => {
 			newErrors.name = 'Имя категории обязательно';
 		}
 		setErrors(newErrors);
-		return Object.keys(newErrors).length === 0; // Возвращаем true, если нет ошибок
+		return Object.keys(newErrors).length === 0;
 	};
 
 	useEffect(() => {

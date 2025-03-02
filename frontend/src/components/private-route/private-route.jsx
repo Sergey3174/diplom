@@ -2,20 +2,19 @@ import { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectUserId } from '../../selectors';
+import { Loader } from '../loader/loader';
 
 export const PrivateRoute = ({ children }) => {
 	const [loading, setLoading] = useState(true);
-	const userId = useSelector(selectUserId); // Получаем userId из Redux store
+	const userId = useSelector(selectUserId);
 
 	useEffect(() => {
 		setLoading(false);
 	}, [userId]);
 
-	// Пока идет загрузка
 	if (loading) {
-		return <div>Загрузка...</div>; // Индикатор загрузки
+		return <Loader />;
 	}
 
-	// Если нет данных пользователя, перенаправляем на страницу входа
 	return userId ? children : <Navigate to="/login" />;
 };

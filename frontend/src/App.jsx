@@ -15,41 +15,34 @@ import styled from 'styled-components';
 import { useEffect, useLayoutEffect, useState } from 'react';
 import { loadDataAsync, setUser } from './actions';
 import { useDispatch, useSelector } from 'react-redux';
-import { useRequestData } from './hooks';
 import { selectUserId } from './selectors';
 
 const AppFlexContainer = ({ className, children }) => {
 	const navigate = useNavigate();
 	const location = useLocation();
-	const [initialized, setInitialized] = useState(false); // флаг для контроля инициализации
+	const [initialized, setInitialized] = useState(false);
 	const userId = useSelector(selectUserId);
 	const dispatch = useDispatch();
-
+	console.log(initialized);
 	useEffect(() => {
-		if (
-			initialized &&
-			location.pathname !== '/' &&
-			location.pathname !== '/history-page'
-		) {
+		if (!initialized && location.pathname !== '/') {
 			dispatch(loadDataAsync(userId));
 		}
 	}, [dispatch, userId, location.pathname, initialized]);
 
 	useEffect(() => {
-		// Сохраняем текущий маршрут в sessionStorage при каждом изменении маршрута
 		sessionStorage.setItem('lastRoute', location.pathname);
 	}, [location.pathname]);
 
 	useEffect(() => {
-		// Перенаправляем на последний маршрут при перезагрузке страницы только один раз
-		if (initialized) return; // Ожидаем, пока компонент полностью загружен
+		if (initialized) return;
 		const lastRoute = sessionStorage.getItem('lastRoute');
 
 		if (lastRoute && lastRoute !== location.pathname) {
-			navigate(lastRoute); // Перенаправляем на последний маршрут, если он существует
+			navigate(lastRoute);
 		}
 
-		setInitialized(true); // После перенаправления ставим флаг, чтобы избежать повторных перенаправлений
+		setInitialized(true);
 	}, [navigate, location.pathname, initialized]);
 
 	return <div className={className}>{children}</div>;
@@ -77,7 +70,6 @@ const Page = styled.div`
 function App() {
 	const dispatch = useDispatch();
 
-	// Загружаем данные пользователя из sessionStorage только при первом рендере
 	useLayoutEffect(() => {
 		const currentUserDataJSON = sessionStorage.getItem('userData');
 
