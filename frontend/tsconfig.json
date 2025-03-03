@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+	  "target": "ES2020",
+	  "useDefineForClassFields": true,
+	  "lib": ["dom", "dom.iterable", "esnext"],
+	  "allowJs": true,
+	  "skipLibCheck": true,
+	  "esModuleInterop": true,
+	  "allowSyntheticDefaultImports": true,
+	  "strict": true,
+	  "forceConsistentCasingInFileNames": true,
+	  "module": "esnext",
+	  "moduleResolution": "node",
+	  "resolveJsonModule": true,
+	  "jsx": "react-jsx",// Включает строгую проверку типов
+   	  "noEmit": true, // Не будет генерировать вывод, если есть ошибки типов
+  // Можно отключить проверку библиотек, если она мешает
+
+	},
+	"include": [
+	  "src"
+	]
+  }
