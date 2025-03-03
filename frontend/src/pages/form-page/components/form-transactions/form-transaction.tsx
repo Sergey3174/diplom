@@ -37,10 +37,10 @@ interface Errors {
 
 interface TransactionData {
 	userId: string;
-	accountId: string | number;
-	categoryId: string | number;
+	accountId: string;
+	categoryId: string;
 	amount: number;
-	type: string | number;
+	type: string;
 	description: string;
 }
 

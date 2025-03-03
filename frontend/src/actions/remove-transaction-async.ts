@@ -5,12 +5,12 @@ import { updateCategory } from './update-category';
 import { Dispatch } from 'redux';
 
 interface Account {
-	amount: number;
-	created_at: string;
 	id: string;
-	name: string;
-	accountType: string;
 	userId: string;
+	name: string;
+	amount: number;
+	type_accounts: string;
+	created_at: string;
 }
 
 interface Category {

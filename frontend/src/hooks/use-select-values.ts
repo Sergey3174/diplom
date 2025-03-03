@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 
 interface SelectValues {
-	[key: string]: string | number;
+	[key: string]: string;
 }
 
 export const useSelectValues = (count: number, initialValues: SelectValues = {}) => {
@@ -15,7 +15,7 @@ export const useSelectValues = (count: number, initialValues: SelectValues = {})
 
 	const [selectValues, setSelectValues] = useState<SelectValues>(defaultValues);
 
-	const handleSelectChange = useCallback((name: string, value: string | number) => {
+	const handleSelectChange = useCallback((name: string, value: string) => {
 		setSelectValues((prevValues) => ({
 			...prevValues,
 			[name]: value,

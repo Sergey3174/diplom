@@ -83,12 +83,7 @@ const App = () => {
 		}
 
 		const currentUserData = JSON.parse(currentUserDataJSON);
-		dispatch(
-			setUser({
-				...currentUserData,
-				roleId: Number(currentUserData.roleId),
-			}),
-		);
+		dispatch(setUser(currentUserData));
 	}, [dispatch]);
 
 	return (

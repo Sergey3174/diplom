@@ -5,8 +5,16 @@ import { ACTION_TYPE } from './action-type';
 import { request } from '../utils';
 import { Dispatch } from 'redux';
 
+interface Category {
+	id: string;
+	userId: string;
+	name: string;
+	type: string;
+	amount: number;
+}
+
 interface DataResponse {
-	categories: any[];
+	categories: Category[];
 	accounts: any[];
 	typeAccount: any[];
 	lastIncomeTransactions: any[];

@@ -9,13 +9,13 @@ interface Account {
 	created_at: string;
 }
 
-interface UpdateAccountAction {
-	type: typeof ACTION_TYPE.UPDATE_ACCOUNT;
+interface AddNewAccountAction {
+	type: typeof ACTION_TYPE.ADD_NEW_ACCOUNT;
 	payload: Account;
 	[key: string]: any;
 }
 
-export const updateAccount = (newAccount: Account): UpdateAccountAction => ({
-	type: ACTION_TYPE.UPDATE_ACCOUNT,
+export const addNewAccount = (newAccount: Account): AddNewAccountAction => ({
+	type: ACTION_TYPE.ADD_NEW_ACCOUNT,
 	payload: newAccount,
 });
