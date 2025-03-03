@@ -179,7 +179,7 @@ export const Analitics = styled(AnaliticsContainer)`
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		height: calc(50vh - 60px);
+		height: calc(50vh-60px);
 	}
 
 	& .header-card {
